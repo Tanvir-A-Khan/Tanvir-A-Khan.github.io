@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tanvir Ahmed Khan — Software Engineer</title>
+    <meta name="description" content="Tanvir Ahmed Khan — Software Engineer. Frontend engineering and full-stack development with React, TypeScript, Next.js, Node.js and Spring Boot. Based in Bangladesh." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var saved = localStorage.getItem("tak-theme");
+          var theme = saved === "light" || saved === "dark" ? saved : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+      // GitHub Pages SPA redirect: decode the path stashed by 404.html into a
+      // real history entry before the router mounts. See public/404.html.
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, "", redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

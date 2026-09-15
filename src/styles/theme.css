@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #08090b;
+  --card: rgba(255, 255, 255, 0.072);
+  --panel: rgba(255, 255, 255, 0.095);
+  --hover: rgba(255, 255, 255, 0.14);
+  --sheen: rgba(255, 255, 255, 0.075);
+  --chip: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.085);
+  --border: rgba(255, 255, 255, 0.105);
+  --border2: rgba(255, 255, 255, 0.15);
+  --borderHi: rgba(255, 154, 61, 0.5);
+  --stroke: rgba(255, 255, 255, 0.3);
+  --ink: #e8eaed;
+  --ink2: #a8aeb6;
+  --ink3: #8f959e;
+  --ink4: #8b9299;
+  --inkMax: #ffffff;
+  --accent: #ff9a3d;
+  --accentHi: #ffc48f;
+  --retro: #e8a33d;
+  --onAccent: #140d04;
+  --accentUp: #ffb466;
+  --glassHi: rgba(255, 255, 255, 0.2);
+  --glow1: rgba(255, 154, 61, 0.13);
+  --glow2: rgba(232, 163, 61, 0.09);
+  --shadow: 0 12px 34px rgba(0, 0, 0, 0.42);
+  --shadowHi: 0 18px 46px rgba(0, 0, 0, 0.5);
+  --sel: rgba(255, 154, 61, 0.28);
+  --headerBg: rgba(8, 9, 11, 0.7);
+  --scrim: rgba(4, 5, 6, 0.66);
+  --grid: rgba(232, 163, 61, 0.055);
+  --shape: rgba(232, 163, 61, 0.1);
+  --shape2: rgba(255, 154, 61, 0.1);
+}
+
+:root[data-theme="light"] {
+  --bg: #faf8f5;
+  --card: rgba(255, 255, 255, 0.58);
+  --panel: rgba(255, 255, 255, 0.66);
+  --hover: rgba(255, 255, 255, 0.86);
+  --sheen: rgba(255, 255, 255, 0.6);
+  --chip: rgba(20, 22, 26, 0.055);
+  --line: rgba(20, 22, 26, 0.1);
+  --border: rgba(20, 22, 26, 0.13);
+  --border2: rgba(20, 22, 26, 0.18);
+  --borderHi: rgba(168, 82, 6, 0.55);
+  --stroke: rgba(20, 22, 26, 0.34);
+  --ink: #15171b;
+  --ink2: #464c55;
+  --ink3: #585f68;
+  --ink4: #5f666f;
+  --inkMax: #000000;
+  --accent: #a85206;
+  --accentHi: #7e3d04;
+  --retro: #8a5a0f;
+  --onAccent: #ffffff;
+  --accentUp: #8a4205;
+  --glassHi: rgba(255, 255, 255, 0.95);
+  --glow1: rgba(168, 82, 6, 0.22);
+  --glow2: rgba(138, 90, 15, 0.16);
+  --shadow: 0 10px 30px rgba(30, 22, 10, 0.1);
+  --shadowHi: 0 16px 40px rgba(30, 22, 10, 0.14);
+  --sel: rgba(168, 82, 6, 0.18);
+  --headerBg: rgba(250, 248, 245, 0.72);
+  --scrim: rgba(28, 22, 14, 0.4);
+  --grid: rgba(138, 90, 15, 0.07);
+  --shape: rgba(138, 90, 15, 0.13);
+  --shape2: rgba(168, 82, 6, 0.11);
+}
+
+:root {
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-panel: var(--panel);
+  --color-hover: var(--hover);
+  --color-sheen: var(--sheen);
+  --color-chip: var(--chip);
+  --color-line: var(--line);
+  --color-border: var(--border);
+  --color-border-2: var(--border2);
+  --color-border-hi: var(--borderHi);
+  --color-stroke: var(--stroke);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink2);
+  --color-ink-3: var(--ink3);
+  --color-ink-4: var(--ink4);
+  --color-ink-max: var(--inkMax);
+  --color-accent: var(--accent);
+  --color-accent-hi: var(--accentHi);
+  --color-retro: var(--retro);
+  --color-on-accent: var(--onAccent);
+  --color-accent-up: var(--accentUp);
+  --color-glass-hi: var(--glassHi);
+  --color-glow-1: var(--glow1);
+  --color-glow-2: var(--glow2);
+  --color-sel: var(--sel);
+  --color-header-bg: var(--headerBg);
+  --color-scrim: var(--scrim);
+  --color-grid: var(--grid);
+  --color-shape: var(--shape);
+  --color-shape-2: var(--shape2);
+
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-martian: "Martian Mono", monospace;
+
+  --shadow-card: var(--shadow);
+  --shadow-card-hi: var(--shadowHi);
+
+  --animate-traceflow: traceflow 4s linear infinite;
+  --animate-nodepulse: nodepulse 2.6s ease-in-out infinite;
+  --animate-fadeup: fadeup 0.25s ease both;
+  --animate-spin-in: spin-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-page-in: fadeup 0.4s ease both;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-ink;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: var(--accent);
+  }
+  a:hover {
+    color: var(--accentHi);
+  }
+  ::selection {
+    background: var(--sel);
+  }
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@keyframes traceflow {
+  to {
+    stroke-dashoffset: -220;
+  }
+}
+@keyframes nodepulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes spin-in {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

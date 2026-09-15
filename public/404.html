@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tanvir Ahmed Khan — Software Engineer</title>
+    <!--
+      GitHub Pages has no server-side rewrites, so a direct load or refresh of
+      a client-side route (e.g. /case-studies) 404s. This stashes the real
+      path in sessionStorage and bounces to the app root, where the inline
+      script in index.html restores it via history.replaceState before React
+      mounts. Standard approach: https://github.com/rafgraph/spa-github-pages
+    -->
+    <script>
+      sessionStorage.redirect = location.href;
+    </script>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body></body>
+</html>
