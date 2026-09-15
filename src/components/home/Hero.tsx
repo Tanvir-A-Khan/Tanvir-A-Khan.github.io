@@ -22,9 +22,9 @@ export default function Hero() {
         className="mb-10 max-w-[54ch] text-[clamp(16px,1.5vw,19px)] leading-[1.65] text-ink2"
         style={{ textWrap: 'pretty' }}
       >
-        I'm Tanvir Ahmed Khan — a software engineer building contract-management software at IBM
-        in React and TypeScript, with backend depth in Java/Spring Boot and Python/FastAPI, and
-        mobile apps I design, build and release myself.
+        I'm Tanvir Ahmed Khan — a software engineer building contract-management software at IBM,
+        full-stack across React, TypeScript and Node.js, with backend depth in Java/Spring Boot and
+        Python/FastAPI elsewhere, and mobile apps I design, build and release myself.
       </p>
 
       <div className="mb-10 flex flex-wrap items-center gap-[clamp(16px,3vw,34px)] border-y border-line py-5">
@@ -58,7 +58,7 @@ export default function Hero() {
             Shipped in LambdaX
           </span>
           <span className="font-mono text-[10.5px] text-ink4">
-            enterprise contract management &middot; react + typescript
+            enterprise contract management &middot; react + typescript + node
           </span>
         </div>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(190px,1fr))] gap-2">

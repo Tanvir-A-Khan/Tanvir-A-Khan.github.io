@@ -14,7 +14,7 @@ export default function JachaiArticle() {
   return (
     <Article>
       <CaseStudyHero
-        kicker="Case study 02"
+        kicker="Case study 03"
         title="Jachai"
         description="A QR-code book authenticity verification platform for Rokomari, Bangladesh's largest online bookstore — customers scan a code to confirm their copy is genuine rather than a counterfeit reprint."
         meta={[
