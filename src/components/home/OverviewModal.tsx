@@ -16,7 +16,7 @@ export default function OverviewModal({ open, onClose }: OverviewModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-[620px] rounded-2xl border border-border-2 bg-panel bg-[image:linear-gradient(160deg,var(--sheen),transparent_62%)] p-[clamp(24px,4vw,38px)] shadow-[var(--shadowHi),inset_0_1px_0_var(--glassHi)] backdrop-blur-[30px] backdrop-saturate-150"
+        className="w-full max-w-[620px] rounded-2xl border border-border-2 bg-panel bg-[image:linear-gradient(160deg,var(--sheen),transparent_62%)] p-[clamp(24px,4vw,38px)] shadow-[var(--shadowHi),inset_0_1px_0_var(--glassHi)] backdrop-blur-[14px] backdrop-saturate-[1.2]"
       >
         <div className="mb-7 flex items-start justify-between gap-5">
           <div>
