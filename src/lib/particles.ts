@@ -20,7 +20,11 @@ export function initParticleField(canvas: HTMLCanvasElement): () => void {
   const ctx: CanvasRenderingContext2D = ctx2d
 
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const STEP = 15
+  // A wider grid and a capped backing-store resolution cut the per-frame cell
+  // count dramatically. This matters more than it looks: the canvas sits
+  // behind dozens of backdrop-blur panels, so every repaint here forces the
+  // browser to re-blur every one of them, not just redraw the canvas itself.
+  const STEP = 22
   let w = 0,
     h = 0,
     dpr = 1,
@@ -49,7 +53,7 @@ export function initParticleField(canvas: HTMLCanvasElement): () => void {
     const mw = canvas.clientWidth || rect.width || window.innerWidth
     const mh = canvas.clientHeight || rect.height || window.innerHeight
     if (mw < 1 || mh < 1) return false // never latch a zero-size backing store
-    dpr = Math.min(window.devicePixelRatio || 1, 2)
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5)
     w = mw
     h = mh
     canvas.width = Math.floor(w * dpr)
@@ -73,6 +77,12 @@ export function initParticleField(canvas: HTMLCanvasElement): () => void {
     )
   }
 
+  // Row buffers so each grid point's field value is computed once, not twice
+  // (once as "this row", once as "the row above's next row") — halves the
+  // trig-call count for the same visual result.
+  let rowBuf: Float32Array = new Float32Array(0)
+  let nextRowBuf: Float32Array = new Float32Array(0)
+
   function draw(t: number) {
     if (w < 1 || h < 1) return
     ctx.clearRect(0, 0, w, h)
@@ -82,6 +92,14 @@ export function initParticleField(canvas: HTMLCanvasElement): () => void {
     const driftY = Math.cos(t * 0.11) * STEP * 0.7
     const cx = 0.5,
       cy = 0.5
+    if (rowBuf.length !== cols) {
+      rowBuf = new Float32Array(cols)
+      nextRowBuf = new Float32Array(cols)
+    }
+    for (let i = 0; i < cols; i++) {
+      const nx = (i * STEP - STEP) / w
+      rowBuf[i] = field(nx, -STEP / h, t)
+    }
     for (let j = 0; j < rows; j++) {
       const y = j * STEP - STEP
       const ny = y / h
@@ -89,9 +107,10 @@ export function initParticleField(canvas: HTMLCanvasElement): () => void {
       for (let i = 0; i < cols; i++) {
         const x = i * STEP - STEP
         const nx = x / w
-        const d = field(nx, ny, t)
+        const d = rowBuf[i]
+        nextRowBuf[i] = field(nx, ny + dy, t)
         // vertical compression between this row and the next
-        const comp = 1 - (STEP + (field(nx, ny + dy, t) - d) * 0.62) / STEP
+        const comp = 1 - (STEP + (nextRowBuf[i] - d) * 0.62) / STEP
         const m = Math.min(1, Math.max(0, comp * 3.3 + 0.22))
         // brightest through the middle band of the screen
         const ddx = (nx - cx) * 1.25
@@ -113,12 +132,16 @@ export function initParticleField(canvas: HTMLCanvasElement): () => void {
           ')'
         ctx.fillRect(x + driftX * (0.4 + 0.6 * ny), y + driftY + d * 0.62, r, r)
       }
+      // This row's "next" values become next iteration's "current" row.
+      const swap = rowBuf
+      rowBuf = nextRowBuf
+      nextRowBuf = swap
     }
   }
 
   function frame(now: number) {
     raf = requestAnimationFrame(frame)
-    if (now - last < 20) return // ~48fps, smooth without burning frames
+    if (now - last < 33) return // ~30fps — plenty smooth for a soft background, far less compositor pressure
     last = now
     if (w < 1 || h < 1) {
       resize()
