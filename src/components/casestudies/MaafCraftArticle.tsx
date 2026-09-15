@@ -15,12 +15,12 @@ export default function MaafCraftArticle() {
   return (
     <Article>
       <CaseStudyHero
-        kicker="Case study 01"
+        kicker="Case study 02"
         title="MaafCraft"
         description="A full-stack e-commerce platform — backend services, storefront, data model and production hosting, built and deployed independently."
         meta={[
           { label: 'ROLE', value: 'Sole engineer — architecture to deployment' },
-          { label: 'STATUS', value: 'Live', accent: true },
+          { label: 'STATUS', value: 'Live · maafcraft.com', accent: true, href: 'https://maafcraft.com' },
           { label: 'STACK', value: 'Spring Boot, Next.js, MongoDB, Cloudinary' },
         ]}
       />

@@ -16,7 +16,7 @@ export default function CaseStudies() {
 
   const activeId = useMemo(() => {
     const id = location.hash.replace('#', '')
-    return PROJECTS.some((p) => p.id === id) ? id : 'maafcraft'
+    return PROJECTS.some((p) => p.id === id) ? id : 'lambdax'
   }, [location.hash])
 
   useEffect(() => {

@@ -4,8 +4,8 @@ export interface ProjectTab {
 }
 
 export const PROJECTS: ProjectTab[] = [
+  { id: 'lambdax', label: 'LAMBDAX' },
   { id: 'maafcraft', label: 'MAAFCRAFT' },
   { id: 'jachai', label: 'JACHAI' },
-  { id: 'lambdax', label: 'LAMBDAX' },
   { id: 'tasbeeh-noor', label: 'TASBEEH NOOR' },
 ]

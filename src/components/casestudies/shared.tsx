@@ -6,6 +6,7 @@ export interface MetaItem {
   label: string
   value: string
   accent?: boolean
+  href?: string
 }
 
 export function CaseStudyHero({
@@ -31,7 +32,19 @@ export function CaseStudyHero({
           <div key={m.label}>
             <dt className="mb-2 font-mono text-[10px] tracking-[0.1em] text-ink4">{m.label}</dt>
             <dd className="text-[14.5px]" style={{ color: m.accent ? 'var(--accent)' : 'var(--ink2)' }}>
-              {m.value}
+              {m.href ? (
+                <a
+                  href={m.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="underline decoration-[color-mix(in_srgb,currentColor_35%,transparent)] underline-offset-2 transition-colors hover:text-accent-hi"
+                  style={{ color: 'inherit' }}
+                >
+                  {m.value}
+                </a>
+              ) : (
+                m.value
+              )}
             </dd>
           </div>
         ))}

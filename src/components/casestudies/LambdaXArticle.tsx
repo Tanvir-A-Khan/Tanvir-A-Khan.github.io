@@ -14,13 +14,13 @@ export default function LambdaXArticle() {
   return (
     <Article>
       <CaseStudyHero
-        kicker="Case study 03"
+        kicker="Case study 01"
         title="LambdaX"
-        description="An enterprise agreement and contract management platform. I build its frontend — the lax-web-portal codebase — first at Cognitus and now at IBM."
+        description="An enterprise agreement and contract management platform. I work across the stack on the lax-web-portal codebase — first at Cognitus, now at IBM — from the contract editor and activity logger to the React frontend and Node.js services."
         meta={[
-          { label: 'ROLE', value: 'Frontend engineer — lax-web-portal' },
+          { label: 'ROLE', value: 'Full-stack engineer — lax-web-portal' },
           { label: 'STATUS', value: 'In production · Cognitus, now IBM', accent: true },
-          { label: 'STACK', value: 'React, TypeScript, Google Calendar API' },
+          { label: 'STACK', value: 'React, TypeScript, Node.js, Google Calendar API' },
         ]}
       />
 
@@ -53,7 +53,7 @@ export default function LambdaXArticle() {
             rectWidth={280}
             rows={[
               'ENTERPRISE USER',
-              'LAX-WEB-PORTAL · REACT + TS',
+              'LAX-WEB-PORTAL · REACT + TS + NODE',
               'CALENDAR MODULE ⇄ GOOGLE',
               'NOTIFICATIONS · DEEP LINKS',
               'AGREEMENTS · ATTACHMENTS',
@@ -82,9 +82,11 @@ export default function LambdaXArticle() {
         <Prose>
           A full calendar module with two-way Google Calendar synchronization, covering events,
           tasks and milestones with automated notifications ahead of each one, plus an in-app
-          notification system with agreement deep links and one-click attachment download.
-          Alongside the features, a steady stream of critical production defects diagnosed and
-          resolved, measurably improving stability and responsiveness for enterprise users.
+          notification system with agreement deep links and one-click attachment download. That
+          frontend work sits alongside full-stack ownership elsewhere in the platform — the
+          contract editor and a Node.js-backed activity/audit logger — plus a steady stream of
+          critical production defects diagnosed and resolved, measurably improving stability and
+          responsiveness for enterprise users.
         </Prose>
       </CaseStudySection>
 

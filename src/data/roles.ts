@@ -33,8 +33,8 @@ export const ROLES: Role[] = [
     company: 'T-TECH',
     title: 'Founder & Software Engineer',
     detail:
-      'Full-stack and mobile development for clients under an independently operated engineering brand. Cross-platform apps in React Native and Expo backed by Python/FastAPI services on Supabase and PostgreSQL, with the complete release pipeline owned end to end: package configuration, release signing, Alembic migrations and Google Play publishing.',
-    tech: ['React Native', 'Expo', 'FastAPI', 'Supabase', 'Alembic', 'Play Console'],
+      'My own products, deliberately built on different stacks rather than one comfortable default: MaafCraft (maafcraft.com) in Next.js and Spring Boot, Tasbeeh Noor in React Native and Expo, and Traffic Rush Dhaka in Godot. The complete release pipeline is owned end to end on every one of them — package configuration, release signing, Alembic migrations and Google Play publishing.',
+    tech: ['Next.js', 'Spring Boot', 'React Native', 'Expo', 'Godot', 'GDScript'],
   },
   {
     key: 'cognitus',
@@ -52,7 +52,7 @@ export const ROLES: Role[] = [
     title: 'Junior Software Engineer',
     current: true,
     detail:
-      "Continuing frontend development on LambdaX in React and TypeScript following the team's transition into IBM. Diagnosing and resolving production defects and shipping reviewed, released functionality within a distributed cross-timezone team.",
-    tech: ['React', 'TypeScript', 'Enterprise UI', 'Distributed teams'],
+      "The same full-stack role on LambdaX, continued under a new name after Cognitus was acquired by IBM. React and TypeScript on the frontend, Node.js on the backend, building out the contract editor, calendar sync and an activity/audit logger, alongside diagnosing and resolving production defects within a distributed cross-timezone team.",
+    tech: ['React', 'TypeScript', 'Editor', 'Calendar', 'Node.js', 'Activity Logger'],
   },
 ]

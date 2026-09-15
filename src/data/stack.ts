@@ -21,7 +21,7 @@ export const STACK: StackGroup[] = [
       ['Spring Boot', 'REST services, Hibernate data models and API design for e-commerce and enterprise platforms.'],
       ['Python', 'FastAPI services for my own products, plus parsing pipelines and scripting.'],
       ['FastAPI', 'Backend for Takafy — SQLAlchemy models, Alembic migrations and a layered SMS parsing pipeline.'],
-      ['Node.js', 'API layers and server-side logic for full-stack JavaScript applications.'],
+      ['Node.js', 'Backend services for LambdaX at IBM — the part of the stack that made the role full-stack.'],
     ],
   },
   {
