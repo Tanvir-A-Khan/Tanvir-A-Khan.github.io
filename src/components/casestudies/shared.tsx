@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { Fragment } from 'react'
 import { glass } from '../../styles/recipes'
@@ -121,5 +122,15 @@ export function WhatILearned({ children }: { children: ReactNode }) {
 }
 
 export function Article({ children }: { children: ReactNode }) {
-  return <article className="animate-fadeup pt-[clamp(40px,8vh,80px)]">{children}</article>
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+      className="pt-[clamp(40px,8vh,80px)]"
+    >
+      {children}
+    </motion.article>
+  )
 }

@@ -106,21 +106,32 @@ export default function WorkSection() {
                       ))}
                     </div>
                     <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                      <Link
-                        to={`/case-studies#${p.slug}`}
-                        className="inline-flex items-center gap-2 text-[14px] text-accent hover:text-accent-hi"
-                      >
-                        Explore case study <span aria-hidden="true">→</span>
-                      </Link>
-                      {p.externalUrl && (
-                        <a
-                          href={p.externalUrl}
-                          target="_blank"
-                          rel="noopener"
-                          className="inline-flex items-center gap-1.5 text-[14px] text-ink3 transition-colors hover:text-ink"
-                        >
-                          {p.externalLabel} <span aria-hidden="true">↗</span>
-                        </a>
+                      {p.externalUrl ? (
+                        <>
+                          {/* This card isn't a single full-card <Link> (see
+                              below), so it needs its own explicit link here. */}
+                          <Link
+                            to={`/case-studies#${p.slug}`}
+                            className="inline-flex items-center gap-2 text-[14px] text-accent hover:text-accent-hi"
+                          >
+                            Explore case study <span aria-hidden="true">→</span>
+                          </Link>
+                          <a
+                            href={p.externalUrl}
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex items-center gap-1.5 text-[14px] text-ink3 transition-colors hover:text-ink"
+                          >
+                            {p.externalLabel} <span aria-hidden="true">↗</span>
+                          </a>
+                        </>
+                      ) : (
+                        // The whole card is already a <Link> to the same
+                        // destination — a nested <a> here would be invalid
+                        // HTML, so this is just a plain visual affordance.
+                        <span className="inline-flex items-center gap-2 text-[14px] text-accent">
+                          Explore case study <span aria-hidden="true">→</span>
+                        </span>
                       )}
                     </div>
                   </div>

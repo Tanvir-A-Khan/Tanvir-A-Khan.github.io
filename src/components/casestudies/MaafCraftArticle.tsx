@@ -1,4 +1,6 @@
+import { PROJECTS } from '../../data/caseStudies'
 import ArchitectureDiagram from './ArchitectureDiagram'
+import ProjectImage from './ProjectImage'
 import {
   Article,
   CaseStudyHero,
@@ -11,9 +13,12 @@ import {
   WhatILearned,
 } from './shared'
 
+const project = PROJECTS.find((p) => p.id === 'maafcraft')!
+
 export default function MaafCraftArticle() {
   return (
     <Article>
+      <ProjectImage src={project.image} alt={project.imageAlt} name={project.label} />
       <CaseStudyHero
         kicker="Case study 02"
         title="MaafCraft"

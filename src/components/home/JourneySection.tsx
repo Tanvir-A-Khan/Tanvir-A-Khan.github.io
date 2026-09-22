@@ -3,7 +3,10 @@ import { ROLES } from '../../data/roles'
 
 export default function JourneySection() {
   const [expanded, setExpanded] = useState<string | null>('ibm')
-  const reversed = [...ROLES].reverse()
+  // Reverse chronological order, but the current role is pinned to the top
+  // outright rather than relying on it happening to be last in ROLES.
+  const reversedRoles = [...ROLES].reverse()
+  const reversed = [...reversedRoles.filter((r) => r.current), ...reversedRoles.filter((r) => !r.current)]
 
   return (
     <section

@@ -1,4 +1,6 @@
+import { PROJECTS } from '../../data/caseStudies'
 import ArchitectureDiagram from './ArchitectureDiagram'
+import ProjectImage from './ProjectImage'
 import {
   Article,
   CaseStudyHero,
@@ -10,9 +12,12 @@ import {
   WhatILearned,
 } from './shared'
 
+const project = PROJECTS.find((p) => p.id === 'lambdax')!
+
 export default function LambdaXArticle() {
   return (
     <Article>
+      <ProjectImage src={project.image} alt={project.imageAlt} name={project.label} />
       <CaseStudyHero
         kicker="Case study 01"
         title="LambdaX"
